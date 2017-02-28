@@ -43,6 +43,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "bootstrap.native": "^2.0.4",
+    "es6-promise": "^3.1.2",
     "postcss": "^5.2.6"
   }
 }

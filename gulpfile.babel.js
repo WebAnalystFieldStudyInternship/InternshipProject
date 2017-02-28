@@ -1,9 +1,10 @@
 // by correy winke
 // 10/17/16
+const Promise = require('es6-promise').Promise;
 import gulp from 'gulp';
 import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
-import csswring from 'csswring';
+// import csswring from 'csswring';
 import cssnext from 'postcss-cssnext';
 import gulpWebpack from 'webpack-stream';
 import livereload from 'gulp-livereload';
@@ -12,7 +13,7 @@ import webpack from 'webpack';
 // build out css using sass and postcsss
 gulp.task('sass', () => {
 	const processors = [
-		csswring,
+		// csswring,
 		cssnext
 	];
 
