@@ -1,0 +1,10 @@
+Stages 0 and 1
+
+[1] desc of features (note: complete ASAP)[2] DB in visio[3] schedule of tasks[4] drawings for site in pen and paper (due 3/2)[5] webpage list and details[6] flow map of website, show walkthrough[7] webpage template (base of all webpages; in HTML)[8] find info frameworks[9] set up collaboration platforms; all of these(Github | Google Drive | Trello)
+[10] Photoshop versions of webpage
+
+Correy - 10, 9, 3
+Caleb - 5, 2
+Mitch - 10, 6, 4, 1
+Alexander - 7 
+Matthew - 8
