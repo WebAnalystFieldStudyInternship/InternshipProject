@@ -1,0 +1,28 @@
+Home Page:
+Login Button --> Login Page
+Clickable map of US states--> State Pages
+
+Login Page:
+Simple login interface with username and password
+If the login is valid, link directly to their county(or state/US depending on what they are authorized for) --> Home Page, State Page or County Page
+
+State Page:
+Clickable map of state counties --> County Pages
+
+County Page:
+Google map of the county.
+A method of narowing down the type of resource needed(drug/alchohol, homeless shelter). Can be a dropdown list, radio buttons, something. After the user picks, the Google Map updates.
+if(an admin in logged in) {
+Create button --> Create Page(pass the CountyID)
+Edit button --> Edit Page(pass the County ID)
+Delete button --> Delete Page(pass the CountyID)
+}
+
+Create Page:
+Create a resource for the county the admin is authorized for.
+
+Edit Page:
+Edit any resource for the county the admin is authorized for.
+
+Delete Page:
+Delete any resource for the county the admin is authorized for.
