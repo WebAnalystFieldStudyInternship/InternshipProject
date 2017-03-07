@@ -1,0 +1,25 @@
+Stage 2 complete March 21
+Stage 3 complete April 13
+Stage 4 complete April 27
+
+complete stage in one to two weeks
+
+Stage 2 Alpha 
+1 - SQL DB
+2 - Working connection to DB and Pages
+3 - transfer html in php
+4 - transfer resource into insert - only if txt or dat use Java to do it
+5 - lean google maps api - js
+6 - functionally design - map dons’t need work
+7 - research clickable map - dons’t have to be implement 
+8 - which php framework
+9 - login page
+10 - site5 for project - non searchable 
+
+Alex 2,3
+Caleb 1,7 
+Mitch 6,9 
+Correy 4
+Matt 8
+everbody 5 
+instructor 11
