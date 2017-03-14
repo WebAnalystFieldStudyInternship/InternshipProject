@@ -17,9 +17,10 @@ Stage 2 Alpha
 10 - site5 for project - non searchable 
 
 Alex 2,3
-Caleb 1,7 
+Caleb 1 
 Mitch 6,9 
 Correy 4
 Matt 8
+Jared 7
 everbody 5 
 instructor 11
