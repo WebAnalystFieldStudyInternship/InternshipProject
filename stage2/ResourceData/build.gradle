@@ -1,0 +1,17 @@
+group 'ResourceData'
+version '1.0'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'mysql:mysql-connector-java:6.0.5'
+}
+
+task execute(type: JavaExec) {
+    main = "cwinke.mainRuner"
+    classpath = sourceSets.main.runtimeClasspath
+}
