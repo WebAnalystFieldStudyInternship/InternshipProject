@@ -1,0 +1,30 @@
+--- Stage 3 Beta (Due: 4/11) ---
+---------------------------
+  1 - insert map into page
+  2 - root dir need file into folders
+  3 - page detail (in map)
+  4 - research resources needed in DB
+  5 - fill out DB
+  6 - members fill check off (days, number of hours, and what we did)
+  7 - PHP framework ::
+  8 - find better map
+  9 - clean up DB (names and categoryies)
+  10 - add online attr (attr: hours, comment)
+  11 - add php page for only online resources (resources with website)
+  ----12 - put basic stuff into DB
+  13 - hash password
+  14 - document code
+  15 - create admin page
+  16 - update site 
+
+--- Current Members ---
+-----------------------
+  - Correy:: Tasks: 1, 2
+
+  - Caleb:: Tasks: 5, 9, 10, 16, 8
+
+  - Alex:: Tasks: 11, 15
+
+  - Mitch:: Tasks: 4, 13
+
+  - Jared:: Tasks: 3, 0
