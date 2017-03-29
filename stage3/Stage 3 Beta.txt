@@ -19,12 +19,14 @@
 
 --- Current Members ---
 -----------------------
-  - Correy:: Tasks: 1, 2
+  - Correy:: Tasks: 1, 2, 7
 
-  - Caleb:: Tasks: 5, 9, 10, 16, 8
+  - Caleb:: Tasks: 5, 9, 10, 16
 
   - Alex:: Tasks: 11, 15
 
   - Mitch:: Tasks: 4, 13
 
-  - Jared:: Tasks: 3, 0
+  - Jared:: Tasks: 3, 8
+  
+  - everyone:: Tasks: 6, 14
