@@ -4,7 +4,7 @@ const Promise = require('es6-promise').Promise;
 import gulp from 'gulp';
 import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
-// import csswring from 'csswring';
+import csswring from 'csswring';
 import cssnext from 'postcss-cssnext';
 import gulpWebpack from 'webpack-stream';
 import livereload from 'gulp-livereload';
@@ -13,7 +13,7 @@ import webpack from 'webpack';
 // build out css using sass and postcsss
 gulp.task('sass', () => {
 	const processors = [
-		// csswring,
+		csswring,
 		cssnext
 	];
 
@@ -36,14 +36,14 @@ gulp.task('jsx', () => {
 					exclude: /node_modules/,
 					query: {
 						presets: [['es2015', {modules: false}]],
-						plugins: ['async-to-promises', 'transform-object-rest-spread']
+						plugins: ['async-to-promises']
 					}
 				}]
 			},
 			output: {
 				filename: 'my-com.js'
 			},
-			devtool: 'inline-sourcemap',
+			//devtool: 'inline-sourcemap',
 			plugins: [new webpack.optimize.UglifyJsPlugin()]
 		}))
 		.pipe(gulp.dest('dist'))
