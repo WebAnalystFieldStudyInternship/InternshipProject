@@ -1,0 +1,34 @@
+Only framework is Bootstrap Native
+Why no other frameworks and libraries, it keep the barrier to entry low.
+
+Javascript goes into script not loading a file; this keep loading resources low and not all pages need Javascript.
+CSS is same thing but goes into style.
+
+Example
+    <script>
+        <?php echo file_get_contents("js/highlight.js") ?>
+    </script>
+
+    <script type="text/javascript">
+        function enableButton(htmlElementID)
+        {
+            var htmlElement = document.getElementById(htmlElementID);
+            htmlElement.classList.remove("disabled");
+            htmlElement.disabled = false;
+        }
+        function updateConfirmationBoxMsg()
+        {
+            var htmlElements = document.getElementsByName('selected-ticket-type-option');
+            var msgBoxElement = document.getElementById('confirmation-box-text');
+            for (element of htmlElements)
+            {
+                if(element.checked)
+                {
+                    msgBoxElement.innerHTML
+                        = "Are you sure?<br>"
+                        + "You’ve seleced the ticket type: <br>"
+                        + element.parentElement.children[1].innerHTML;
+                }
+            }
+        }
+    </script>

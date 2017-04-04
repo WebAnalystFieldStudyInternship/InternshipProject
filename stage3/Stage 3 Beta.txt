@@ -16,6 +16,7 @@
   14 - document code
   15 - create admin page
   16 - update site
+  17 - style guide
 
 --- Current Members ---
 -----------------------
