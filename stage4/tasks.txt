@@ -1,0 +1,5 @@
+hook into DB
+add admin page
+hover effect
+fill side panel
+change map
