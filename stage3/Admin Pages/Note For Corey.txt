@@ -1,0 +1,4 @@
+-- 4/24/2017
+
+Will still be working on the database php this monday, I will also have a working database script uploaded
+called "resource_db"
