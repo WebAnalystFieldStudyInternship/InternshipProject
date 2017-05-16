@@ -843,7 +843,7 @@ INSERT INTO Counties (CountyID,CountyName) VALUES
 (55055, 'Jefferson'),
 (55057, 'Juneau'),
 (55059, 'Kenosha'),
-(55061, 'Kewauna'),
+(55061, 'Kewaunee'),
 (55063, 'La Crosse'),
 (55065, 'Lafayette'),
 (55067, 'Langlade'),
