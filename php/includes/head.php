@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.native/2.0.5/bootstrap-native.min.js"></script>
+	<script type = "text/javascript" src="js/resources.js"></script>
     <style>
         body {
             height: 1500px;
@@ -64,6 +65,18 @@
         #custom-search-input .glyphicon-search{
             font-size: 18px;
         }
+		
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		table, td, th {
+			border: 1px solid black;
+			padding: 5px;
+		}
+
+		th {text-align: center;}
 
         <?php echo file_get_contents("dist/myStyle.css") ?>
     </style>

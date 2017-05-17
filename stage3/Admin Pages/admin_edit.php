@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+	<?php print_r($_POST); ?>
         <title>
           Admin Page
         </title>

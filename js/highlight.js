@@ -1,11 +1,11 @@
 	function blankWisconsin() {
   document.getElementById("wisconsinmap").src="images/cnty.gif";
   document.getElementById("countyName").innerHTML = "<h2>Please select a county to browse</h2>";
+  } 
   
-  }  
 	function greenCounty() {
   document.getElementById("wisconsinmap").src="images/green.gif"; 
-	document.getElementById("countyName").innerHTML = "Green County, Wisconsin"; 
+  document.getElementById("countyName").innerHTML = "Green County, Wisconsin"; 
   }
   
 	function adamsCounty() {

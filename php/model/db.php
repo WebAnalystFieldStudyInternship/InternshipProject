@@ -13,7 +13,7 @@
         // by Correy Winke
         // 10/27/16
         // opens up a database
-        $dsn = 'mysql:host=localhost;dbname=Festival_DB';
+        $dsn = 'mysql:host=localhost;dbname=resource_db';
         $username = 'root';
         $password = 'root';
         // check to se it works
@@ -70,4 +70,22 @@
             exit("Mismatched values");
         }
     }
+	
+	//returns the entirety of a table
+	function getAll($table="") {
+		$db = getAccess();
+		$query = "SELECT * FROM " .$table;
+		echo $query;
+		$statement = $db->prepare($query);
+		if(!$statement) {
+			exit("Sorry prepare failed");
+		}
+		$workQuery = $statement->execute();
+		if(!$workQuery) {
+			exit("Bad execution");
+		}
+		$newFeedback = $statement->fetchAll();
+		$statement->closeCursor();
+		return $newFeedback;
+	}
 ?>

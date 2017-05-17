@@ -57,7 +57,9 @@ ZIP VARCHAR(10),
 PhoneNUMBER VARCHAR(12) NOT NULL,
 Fax VARCHAR(12),
 Email VARCHAR(12),
-FOREIGN KEY (StateID) REFERENCES States(StateID)
+CountyAssignmentID INT(11) NOT NULL,
+FOREIGN KEY (StateID) REFERENCES States(StateID),
+FOREIGN KEY (CountyAssignmentID) REFERENCES CountyAssignment(CountyAssignmentID)
 );
 
 DROP TABLE IF EXISTS ResourceTypeAssignment; 
@@ -120,9 +122,11 @@ INSERT INTO `States` (`StateID`, `StateName`) VALUES
 ('WA', 'Washington'),
 ('WI', 'Wisconsin'),
 ('WV', 'West Virginia'),
-('WY', 'Wyoming');
+('WY', 'Wyoming'),
+('NA', 'Not Applicable');
 
 INSERT INTO `Counties` (`CountyID`,`CountyName`) VALUES
+(99999, 'N/A'),
 (55001, 'Adams'),
 (55003, 'Ashland'),
 (55005, 'Barron'),
@@ -268,39 +272,41 @@ INSERT INTO CountyAssignment (StateID,CountyID) VALUES
 ('WI', 55135),
 ('WI', 55137),
 ('WI', 55139),
-('WI', 55141);
+('WI', 55141),
+('WI', 99999), 
+('ZZ', 99999);
 
 
-INSERT INTO `Resources` (`ResourceID`, `ResourceName`, `StreetAddress`, `City`, `StateID`, `ZIP`, `PhoneNUMBER`, `Fax`, `Email`) VALUES
+INSERT INTO `Resources` (`ResourceID`, `ResourceName`, `StreetAddress`, `City`, `StateID`, `ZIP`, `PhoneNUMBER`, `Fax`, `Email`, `CountyAssignmentID`) VALUES
 
-(134, 'Sparrows Nest- Beloit', NULL, NULL, NULL, NULL, '608-362 8215', NULL, NULL),
-(135, 'Lazarus House- Janesville', NULL, NULL, NULL, NULL, '608-373-0766', NULL, NULL),
-(137, 'Red Road House', NULL, 'Beloit', 'WI', '53548', '608-743-0904', NULL, NULL),
-(138, 'YWCA Transitional Living Women- Janesville', NULL, 'Janesville', 'WI', NULL, '608-755-4749', NULL, NULL),
-(139, 'Housing 4 our Vets', NULL, NULL, NULL, NULL, '608-741-4500', '608-741-4502', NULL),
+(134, 'Sparrows Nest - Beloit', NULL, NULL, NULL, NULL, '608-362 8215', NULL, NULL, 54),
+(135, 'Lazarus House - Janesville', NULL, NULL, NULL, NULL, '608-373-0766', NULL, NULL, 54),
+(137, 'Red Road House', NULL, 'Beloit', 'WI', '53548', '608-743-0904', NULL, NULL, 54),
+(138, 'YWCA Transitional Living Women - Janesville', NULL, 'Janesville', 'WI', NULL, '608-755-4749', NULL, NULL, 54),
+(139, 'Housing 4 our Vets', NULL, NULL, NULL, NULL, '608-741-4500', '608-741-4502', NULL, 54),
 
-(140, 'Beloit Housing Authority', NULL, NULL, NULL, NULL, '608-364-8740', NULL, NULL),
-(141, 'Janesville Neighborhood & Community', NULL, 'Janesville', 'WI', NULL, '608-755-3065', NULL, NULL), 
-(142, 'Edgerton Housing Authority', NULL, NULL, NULL, NULL, '608-884-8454', NULL, NULL),
-(143, 'Evansville Housing Authority', NULL, NULL, NULL, NULL, '608-882-4518', NULL, NULL), 
-(144, 'Grant Village -Janesville', NULL,'Janesville', 'WI', NULL, '608-755-1755', NULL, NULL), 
-(145, 'Janesville Commons -Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-3178', NULL, NULL), 
-(146, 'lexington CourtApartments', NULL, 'Janesville', 'WI', NULL, '262-642-7704', NULL, NULL), 
-(147, 'Woodside Terrace -Beloit', NULL, 'Beloit', 'WI', NULL, '608-365-0333', NULL, NULL), 
-(148, 'Alden Street Apartments,Janesville', NULL, 'Janesville', 'WI', NULL, '608-752-4259', NULL, NULL), 
-(149, 'Independent Disability Services', NULL, 'Janesville', 'WI', NULL, '608-754-5552', NULL, NULL),
-(150, 'Hamilton Terrace -Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-4040', NULL, NULL),
-(151, 'G.I.F.T.S Men\'s Shelter -Janesville', NULL, 'Janesville', 'WI', NULL, '608-728-0140', NULL, NULL),
-(152, 'Hands of Faith Families- Beloit', NULL, 'Beloit', 'WI', NULL, '608-363-0683', NULL, 'staff@handsoffaith.org'), 
-(153, 'House of Mercy Families- Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-0045', NULL, NULL),
-(154, 'Britton House- Men Beloit', NULL, 'Beloit', 'WI', NULL, '608-365-4787', NULL, NULL),
+(140, 'Beloit Housing Authority', NULL, NULL, NULL, NULL, '608-364-8740', NULL, NULL, 54),
+(141, 'Janesville Neighborhood & Community', NULL, 'Janesville', 'WI', NULL, '608-755-3065', NULL, NULL, 54), 
+(142, 'Edgerton Housing Authority', NULL, NULL, NULL, NULL, '608-884-8454', NULL, NULL, 54),
+(143, 'Evansville Housing Authority', NULL, NULL, NULL, NULL, '608-882-4518', NULL, NULL, 54), 
+(144, 'Grant Village - Janesville', NULL,'Janesville', 'WI', NULL, '608-755-1755', NULL, NULL, 54), 
+(145, 'Janesville Commons - Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-3178', NULL, NULL, 54), 
+(146, 'lexington CourtApartments', NULL, 'Janesville', 'WI', NULL, '262-642-7704', NULL, NULL, 54), 
+(147, 'Woodside Terrace - Beloit', NULL, 'Beloit', 'WI', NULL, '608-365-0333', NULL, NULL, 54), 
+(148, 'Alden Street Apartments, Janesville', NULL, 'Janesville', 'WI', NULL, '608-752-4259', NULL, NULL, 54), 
+(149, 'Independent Disability Services', NULL, 'Janesville', 'WI', NULL, '608-754-5552', NULL, NULL, 54),
+(150, 'Hamilton Terrace - Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-4040', NULL, NULL, 54),
+(151, 'G.I.F.T.S Men\'s Shelter - Janesville', NULL, 'Janesville', 'WI', NULL, '608-728-0140', NULL, NULL, 54),
+(152, 'Hands of Faith Families - Beloit', NULL, 'Beloit', 'WI', NULL, '608-363-0683', NULL, 'staff@handsoffaith.org', 54), 
+(153, 'House of Mercy Families - Janesville', NULL, 'Janesville', 'WI', NULL, '608-754-0045', NULL, NULL, 54),
+(154, 'Britton House - Men Beloit', NULL, 'Beloit', 'WI', NULL, '608-365-4787', NULL, NULL, 54),
 
-(167, 'Aids Network, Beloit', NULL, NULL, NULL, NULL, '608-364-4027', NULL, NULL),
-(168, 'Aids Network, Janesville', NULL, NULL, NULL, NULL, '608-756-3010', NULL, NULL), 
-(170, 'Beloit Area Community Health CareCenter', '74 Eclipse Blvd', 'Beloit', 'WI', '53511', '608-361-0311', NULL, NULL),
-(171, 'First Choice Women\'s Care Center,Janesville', '1015 W Burbank Ave', 'Janesville', 'WI', '53546', '608-755-2438', NULL, NULL), 
-(172, 'First Choice Women\'s Care Center Beloit', '600 Henry Ave', 'Beloit', 'WI', '53511', '608-313-1300', NULL, NULL),
-(173, 'Health Net of Janesville', '23 W Milwaukee St # 204', 'Janesville', 'WI', '53548', '608-756-4638', NULL, NULL);
+(167, 'Aids Network, Beloit', NULL, NULL, NULL, NULL, '608-364-4027', NULL, NULL, 54),
+(168, 'Aids Network, Janesville', NULL, NULL, NULL, NULL, '608-756-3010', NULL, NULL, 54), 
+(170, 'Beloit Area Community Health CareCenter', '74 Eclipse Blvd', 'Beloit', 'WI', '53511', '608-361-0311', NULL, NULL, 54),
+(171, 'First Choice Women\'s Care Center, Janesville', '1015 W Burbank Ave', 'Janesville', 'WI', '53546', '608-755-2438', NULL, NULL, 54), 
+(172, 'First Choice Women\'s Care Center, Beloit', '600 Henry Ave', 'Beloit', 'WI', '53511', '608-313-1300', NULL, NULL, 54),
+(173, 'Health Net of Janesville', '23 W Milwaukee St # 204', 'Janesville', 'WI', '53548', '608-756-4638', NULL, NULL, 54);
 
 INSERT INTO `ResourceTypes` (`ResourceTypeID`, `ResourceTypeName`) VALUES
 (1, 'Treatment'),

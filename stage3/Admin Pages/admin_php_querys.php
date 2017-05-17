@@ -17,7 +17,7 @@
 
 // CREATE PDO OBJ
 //------------------------------------------------------------------------------------
-$dsn = 'mysql:host=localhost;dbname=resource_db;charset=UTF-8';
+$dsn = 'mysql:host=localhost;dbname=resource_db;';
 $username = 'root';
 $password = '';
 
@@ -25,7 +25,15 @@ $pdoObj;
 try{
 $pdoObj = new PDO($dsn, $username, $password);
 } catch (PDOException $e) {
+	echo 'Message: ' .$e->getMessage();
 /* undefined action at this time */
+}
+
+//if user clicks on add button from admin_add page to add a resource to the database, this method turns a county name into its assignment number & passes it
+//on to the insertResource method to be added to the database
+if(isset($_POST['Add_Resource'])) {
+	$countyAssignmentId = getCountyAssign();
+	insertResource($countyAssignmentId);
 }
 
 // QUERY FUNCTIONS
@@ -102,7 +110,7 @@ function deleteResource($resourceID)
  *This function does not require a resource ID since
  *the ID is added automaticaly
  */
-function insertResource()
+function insertResource($countyAssignmentID)
 {
 	//*** Query Building ***
 	//**********************
@@ -114,12 +122,13 @@ function insertResource()
 	$phoneNumber =		($_POST['PhoneNumber']==null?	'NULL': $_POST['PhoneNumber']);
 	$fax =			($_POST['Fax']==null?		'NULL': $_POST['Fax']);
 	$email =		($_POST['Email']==null?		'NULL': $_POST['Email']);
+	$countyAssignmentID =	$countyAssignmentID;
 
 	$query = "
 	INSERT INTO resources
-		(ResourceName,	StreetAddress,	City,	StateID,	Zip,	PhoneNUMBER,	Fax,	Email)
+		(ResourceName, StreetAddress, City, StateID, ZIP, PhoneNUMBER, Fax, Email, CountyAssignmentID)
 	VALUES
-		($resourceName,	$streetAddress,	$city,	$stateID,	$zip,	$phoneNumber,	$fax,	$email);
+		('$resourceName',	'$streetAddress',	'$city',	'$stateID',	'$zip',	'$phoneNumber',	'$fax',	'$email',	'$countyAssignmentID');
 	";
 
 	//*** Query Execution ***
@@ -128,13 +137,16 @@ function insertResource()
 	$statement = $pdoObj->prepare($query);
 
 
-	try { $statement->execute(); }
+	//if insert is successful, sends user back to admin page
+	try { $statement->execute(); 
+		header("Location: admin.php"); }
 	catch (Exception $e){
 		//TODO: Take admin to error page with meaningfull message
 
 		//For now , though, do this...
 		echo 'Message: ' .$e->getMessage();
 	}
+	
 }
 
 
@@ -148,9 +160,7 @@ function getResources()
 {
 	//*** Query Building ***
 	//**********************
-	$query = "
-	SELECT * FROM resources
-	";
+	$query = "SELECT * FROM resources";
 
     global $pdoObj;
 	$statement = $pdoObj->prepare($query);
@@ -227,15 +237,13 @@ function getCategories()
     //*** Query Building ***
 	//**********************
 	$query = 'SELECT * FROM resourcetypes';
-    
+	
     global $pdoObj;
 	$statement = $pdoObj->prepare($query);
-	var_dump($pdoObj);
 	$results = array();
 	try { 
 		$statement->execute();
 		$results = $statement->fetchAll();
-		//$statement->cursorClose();
 	}
 	catch (Exception $e){
 		//TODO: Take admin to error page with meaningfull message
@@ -250,8 +258,77 @@ function getCategories()
     }
     $results = $temp;
     
-    $statement->cursorClose();
+	
     return $results;
 }
 
+//returns a dropdown list of resource categories
+function dropDownCats() {
+	$results = getCategories();
+	echo '<option>Select a category: </option>';
+	foreach ($results AS $r) {
+		echo '<option>' .$r .'</option>';
+	}
+}
+
+//returns all states & their abbreviations 
+function getStates()
+{
+    //*** Query Building ***
+	//**********************
+	$query = 'SELECT * FROM states';
+	
+    global $pdoObj;
+	$statement = $pdoObj->prepare($query);
+	$results = array();
+	try { 
+		$statement->execute();
+		$results = $statement->fetchAll();
+	}
+	catch (Exception $e){
+		//TODO: Take admin to error page with meaningfull message
+
+		//For now , though, do this...
+		echo 'Message: ' .$e->getMessage();
+	}
+    
+    $temp = array();
+    foreach /*thing in*/($results as $thing){
+        array_push($temp, $thing['StateID']);
+    }
+    $results = $temp;
+    
+	
+    return $results;
+}
+
+//returns a dropdown list of state abbreviations
+function dropDownStates() {
+	$results = getStates();
+	echo '<option>Select a state: </option>';
+	foreach ($results AS $r) {
+		echo '<option value=' .$r .'>' .$r .'</option>';
+	}
+}
+//gets county assignment id for a county name
+function getCountyAssign() {
+	$countyName = $_POST['CountyName'];
+	$query = 'SELECT CountyAssignmentID FROM CountyAssignment ca INNER JOIN Counties c ON ca.CountyID = c.CountyID WHERE CountyName = :countyName';
+	global $pdoObj;
+	$statement = $pdoObj->prepare($query);
+	$result;
+	try { 
+		$statement->bindValue(':countyName', $countyName);
+		$statement->execute();
+		$result = $statement->fetch();
+	}
+	catch (Exception $e){
+		//TODO: Take admin to error page with meaningfull message
+
+		//For now , though, do this...
+		echo 'Message: ' .$e->getMessage();
+	}
+	
+    return $result['CountyAssignmentID'];
+}
 ?>

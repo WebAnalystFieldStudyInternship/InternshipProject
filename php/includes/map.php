@@ -4,7 +4,7 @@
                   <img src="images/cnty.gif" alt="" usemap="#Map" id="wisconsinmap" />
                   <map name="Map" id="Map">
                       <area alt="green" title="" href="#" shape="poly" coords="258,506,299,505,299,547,258,545" onmouseover="greenCounty()" onmouseout="blankWisconsin()" />
-                      <area alt="rock" title="" href="#" shape="poly" coords="300,547,301,506,350,507,352,548" onmouseover="rockCounty()" onmouseout="blankWisconsin()" />
+                      <area alt="rock" title="" href="#" shape="poly" coords="300,547,301,506,350,507,352,548" onclick="selectRockCounty()" onmouseover="rockCounty()" onmouseout="blankWisconsin()" />
                       <area alt="lafayette" title="" href="#" shape="poly" coords="258,547,258,510,207,510,207,546" onmouseover="lafayetteCounty()" onmouseout="blankWisconsin()"/>
                       <area alt="grant" title="" href="#" shape="poly" coords="188,547,182,532,158,522,154,520,147,501,144,487,151,487,158,481,167,480,176,474,182,473,184,466,194,464,205,464,206,546" onmouseover="grantCounty()" onmouseout="blankWisconsin()"/>
                       <area alt="crawford" title="" href="#" shape="poly" coords="186,466,178,473,164,480,156,484,152,488,144,487,141,473,150,461,150,456,141,445,139,438,184,438" onmouseover="crawfordCounty()" onmouseout="blankWisconsin()"/>
