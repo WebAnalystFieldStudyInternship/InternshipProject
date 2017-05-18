@@ -25,7 +25,7 @@ $countyNumber = array($number, $id);
 
 //returns resources from the database that are in the selected category fron the dropdown list
 $sql="SELECT * FROM Resources r INNER JOIN CountyAssignment ca ON r.CountyAssignmentID = ca.CountyAssignmentID INNER JOIN ResourceTypeAssignment rta ON r.resourceID = rta.resourceID 
-INNER JOIN ResourceTypes rt ON rta.resourceTypeID = rt.ResourceTypeID WHERE ca.CountyAssignmentID = :countyAssignmentID AND rta.resourceTypeID = :resourceTypeID";
+INNER JOIN ResourceTypes rt ON rta.resourceTypeID = rt.ResourceTypeID INNER JOIN Counties c ON c.CountyID = ca.CountyID WHERE c.CountyID = :countyAssignmentID AND rta.resourceTypeID = :resourceTypeID";
 
 //puts results from SQL query into an array called $results
 $results = handleSQL($sql, $countyAssignment, $countyNumber, 1);

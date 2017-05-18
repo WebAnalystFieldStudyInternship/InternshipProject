@@ -19,12 +19,13 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <form class="navbar-form">
+                <form action="php/includes/login.php" method="post" class="navbar-form">
                   <div class="input-group">
                     <div class="input-group-btn">
-                      <input type="submit" class="btn btn-default" value="Admin Login">
+                      <button type="submit" class="btn btn-default">Admin Login</button>
+                      <input type="hidden" name="action" value="login">
                     </div>
-                    <input type="password" class="form-control" placeholder="password">
+                    <input type="password" name="password" class="form-control" placeholder="password">
                   </div>
                 </form>
               </li>

@@ -17,7 +17,7 @@ $countyAssignment = array(":countyAssignmentID");
 $countyNumber = array($number);
 
 //query to find all resource categories that are located in the selected county
-$sql="SELECT DISTINCT rt.ResourceTypeID, ResourceTypeName FROM ResourceTypes rt Inner Join ResourceTypeAssignment rta ON rt.ResourceTypeID = rta.ResourceTypeID INNER JOIN Resources r ON r.ResourceID = rta.ResourceID WHERE r.CountyAssignmentID = :countyAssignmentID";
+$sql="SELECT DISTINCT rt.ResourceTypeID, ResourceTypeName FROM ResourceTypes rt Inner Join ResourceTypeAssignment rta ON rt.ResourceTypeID = rta.ResourceTypeID INNER JOIN Resources r ON r.ResourceID = rta.ResourceID INNER JOIN CountyAssignment ca ON ca.CountyAssignmentID = r.CountyAssignmentID INNER JOIN Counties c ON c.CountyID = ca.CountyID WHERE c.CountyID = :countyAssignmentID";
 
 //puts results from SQL query into an array called $results
 $results = handleSQL($sql, $countyAssignment, $countyNumber, 1);

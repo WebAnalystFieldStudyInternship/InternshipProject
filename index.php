@@ -2,7 +2,7 @@
 <html>
 <?php require 'php/includes/head.php' ?>
 
-<body>
+<body id="mainPage">
 <?php require 'php/includes/navbar.php' ?>
 
 <!-- MAP: Map & Basic-Info-Model -->

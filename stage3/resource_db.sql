@@ -57,7 +57,7 @@ CREATE TABLE `Resources` (
   `PhoneNUMBER` varchar(12) NOT NULL,
   `Fax` varchar(12) DEFAULT NULL,
   `Email` varchar(12) DEFAULT NULL,
-  `CountyAssignmentID` INT(11) NOT NULL /* <-- added by Steph 5/2/2017 */
+  `CountyAssignmentID` INT(11) /* <-- added by Steph 5/2/2017 */
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

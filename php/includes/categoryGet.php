@@ -2,12 +2,15 @@
 //allows connection to database
 require("../model/db.php");
 
+var_dump($_GET);
+
 //if no category is set, does nothing
 if(strval($_GET['categoryname']) == "") {
 	exit;
 //otherwise retrieves all resources under selected category and returns them in a table
 } else {
 	$catName = strval($_GET['categoryname']);
+
 	$query = 'SELECT * FROM resources r INNER JOIN resourceTypeAssignment rta ON r.ResourceID = rta.ResourceID INNER JOIN resourceTypes rt ON 
 	rt.ResourceTypeID = rta.ResourceTypeID WHERE rt.ResourceTypeName = :catname';
 	$statements = array(":catname");

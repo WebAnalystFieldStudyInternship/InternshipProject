@@ -75,7 +75,6 @@
 	function getAll($table="") {
 		$db = getAccess();
 		$query = "SELECT * FROM " .$table;
-		echo $query;
 		$statement = $db->prepare($query);
 		if(!$statement) {
 			exit("Sorry prepare failed");
